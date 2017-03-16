@@ -39,5 +39,6 @@ public class Pelota extends Actor
             incy=-incy;
         }
         this.setLocation(nuevox,nuevoy);
+        
     }    
 }
