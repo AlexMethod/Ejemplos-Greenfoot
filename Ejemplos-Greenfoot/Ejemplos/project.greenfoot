@@ -1,13 +1,14 @@
 #Greenfoot properties
-#Wed Mar 15 22:24:45 CST 2017
+#Wed Mar 15 23:20:27 CST 2017
 readme.name=@README
+simulation.speed=41
 target2.name=Escenario
 target2.showInterface=false
-class.Pelota.image=teddybear.png
+class.Pelota.image=c\u00E9lula Tiny Traveler.png
 target1.type=ClassTarget
 target2.y=10
-target2.x=70
 package.numTargets=2
+target2.x=70
 target1.height=50
 class.Escenario.superclass=greenfoot.World
 editor.swing.0.y=0

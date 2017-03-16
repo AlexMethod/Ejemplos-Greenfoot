@@ -16,7 +16,7 @@ public class Escenario extends World
             MouseInfo raton = Greenfoot.getMouseInfo();
             int x = raton.getX(); 
             int y = raton.getY(); 
-            addObject(new Pelota(), x,y);
+            addObject(new Pelota(), x,y); 
         }
     }
     
