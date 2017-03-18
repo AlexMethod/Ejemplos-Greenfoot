@@ -1,24 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Pelota here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import java.util.Random;
 public class Ball extends Actor
 {
     private int incx;
     private int incy;
-    
+    private int pP1;
+    private int pP2;
     public Ball(){
         incx=10;
         incy=10;
+        pP1=0;
+        pP2=0;
     }
     @Override 
     public void act() 
     {
-        //consulta las coordenadas actuales heredadas de actor
+        
         int posx=this.getX();
         int posy=this.getY();
         //Calcula las nuevas coordenadas
@@ -26,22 +23,36 @@ public class Ball extends Actor
         int nuevoy=posy + incy;
         
         World mundo = this.getWorld();
+        mundo.showText(pP1+"",100,30);
+        mundo.showText(pP2+"",100,460);
+        this.setLocation(nuevox,nuevoy);
+        if(this.isTouching(Paddle.class)){
+           incy=-incy;
+        }
         if(nuevox>mundo.getWidth())  { //Rebota en el lado derecho
             incx=-incx;
         }
         if(nuevoy> mundo.getHeight()){ //Rebota en la parte de abajo
-            mundo.removeObject(this);
+            pP1++;
+            this.setLocation(350,250);
         }
         if(nuevox<0){ //<<Rebota en el lado izquierdo
             incx=-incx;
         }
         if(nuevoy<0){ //Rebota en la parte de arriba 
-            mundo.removeObject(this);
+            pP2++;
+            this.setLocation(350,250);
         }
-        if(this.isTouching(Paddle.class)){
-           incy=-incy;
+        if(pP1==5){
+            mundo.showText("Winner: Player 1",350,250);
+            Greenfoot.stop();
         }
-        this.setLocation(nuevox,nuevoy);
+        if(pP2==5){
+            mundo.showText("Winner: Player 2",350,250);
+            Greenfoot.stop();
+        }
+        
+        
         
     }    
 }
